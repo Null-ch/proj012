@@ -152,7 +152,27 @@ const initServicesModal = () => {
     });
 };
 
+const initToast = () => {
+    const toast = document.querySelector('[data-toast]');
+    const closeButton = document.querySelector('[data-toast-close]');
+
+    if (!toast) {
+        return;
+    }
+
+    const removeToast = () => {
+        toast.classList.add('is-hidden');
+        window.setTimeout(() => {
+            toast.remove();
+        }, 220);
+    };
+
+    closeButton?.addEventListener('click', removeToast);
+    window.setTimeout(removeToast, 5000);
+};
+
 initAboutInteractive();
 initServicesSlider();
 initGalleryLightbox();
 initServicesModal();
+initToast();
