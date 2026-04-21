@@ -11,12 +11,12 @@
 }
 
 :root {
-    --bg: #162033;
-    --bg-soft: #25324a;
-    --surface: #f4f6f8;
-    --text: #233043;
-    --text-muted: #5d6b7d;
-    --accent: #f07f2f;
+    --bg: #0f1b2d;
+    --bg-soft: #1f3148;
+    --surface: #f2f5f8;
+    --text: #1f2e40;
+    --text-muted: #526176;
+    --accent: #3d7aa8;
 }
 
 * {
@@ -27,7 +27,7 @@ body.landing-body {
     margin: 0;
     font-family: var(--font-sans);
     color: var(--text);
-    background: #e8edf2;
+    background: #e4eaf1;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -76,7 +76,7 @@ body.landing-body main {
 
 .hero {
     background-image:
-        linear-gradient(130deg, rgba(15, 23, 42, 0.82), rgba(30, 41, 59, 0.68)),
+        linear-gradient(130deg, rgba(10, 20, 35, 0.86), rgba(27, 46, 69, 0.72)),
         url('/img/main/image-13-4.jpg');
     background-size: cover;
     background-position: center center;
@@ -93,14 +93,14 @@ body.landing-body main {
 
 .hero p {
     max-width: 680px;
-    color: #cbd5e1;
+    color: #d5dee9;
 }
 
 .hero__badge {
     display: inline-block;
     padding: 0.4rem 0.8rem;
     border-radius: 999px;
-    border: 1px solid #334155;
+    border: 1px solid #4b6078;
     font-size: 0.9rem;
 }
 
@@ -125,8 +125,8 @@ body.landing-body main {
 }
 
 .btn--ghost {
-    border-color: #475569;
-    color: #e2e8f0;
+    border-color: #5c7188;
+    color: #e7edf4;
 }
 
 .section {
@@ -412,9 +412,9 @@ body.landing-body main {
 .request__form input:not([type='checkbox']):focus,
 .request__form textarea:focus {
     outline: none;
-    border-color: #fb923c;
+    border-color: #3d7aa8;
     background: #fff;
-    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.18);
+    box-shadow: 0 0 0 3px rgba(61, 122, 168, 0.2);
 }
 
 .request__consent {
@@ -453,8 +453,8 @@ body.landing-body main {
 }
 
 .request__consent input:checked {
-    background: #f97316;
-    border-color: #f97316;
+    background: #3d7aa8;
+    border-color: #3d7aa8;
 }
 
 .request__consent input:checked::before {
@@ -463,7 +463,7 @@ body.landing-body main {
 
 .request__consent input:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+    box-shadow: 0 0 0 3px rgba(61, 122, 168, 0.22);
 }
 
 .request__submit {
@@ -571,7 +571,7 @@ body.landing-body main {
 }
 
 .btn--primary:hover {
-    background: #dc6c1f;
+    background: #316689;
 }
 
 .services__controls {
@@ -842,7 +842,7 @@ body.landing-body main {
 }
 
 .footer {
-    background: #020617;
+    background: #081422;
     color: #e2e8f0;
     padding: 3rem 0;
 }
