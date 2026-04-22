@@ -12,7 +12,7 @@
 
                     if ($href === '#contacts') {
                         $href = route('landing.contacts');
-                    } elseif (str_starts_with($href, '#') && request()->routeIs('landing.contacts')) {
+                    } elseif (str_starts_with($href, '#') && !request()->routeIs('landing.home')) {
                         $href = route('landing.home') . $href;
                     }
                 @endphp
