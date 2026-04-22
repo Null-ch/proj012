@@ -171,8 +171,29 @@ const initToast = () => {
     window.setTimeout(removeToast, 5000);
 };
 
+const initBackToTop = () => {
+    const button = document.querySelector('[data-back-to-top]');
+
+    if (!button) {
+        return;
+    }
+
+    const toggleVisibility = () => {
+        const isVisible = window.scrollY > 400;
+        button.classList.toggle('is-visible', isVisible);
+    };
+
+    button.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
+    toggleVisibility();
+};
+
 initAboutInteractive();
 initServicesSlider();
 initGalleryLightbox();
 initServicesModal();
 initToast();
+initBackToTop();
