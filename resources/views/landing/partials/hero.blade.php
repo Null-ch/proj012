@@ -1,6 +1,6 @@
 <section class="hero" id="about">
     <div class="container">
-        <span class="hero__badge">{{ $hero['badge'] }}</span>
+        <!-- <span class="hero__badge">{{ $hero['badge'] }}</span> -->
         <h1>{{ $hero['title'] }}</h1>
         <p>{!! nl2br(e($hero['description'])) !!}</p>
         <div class="hero__actions">

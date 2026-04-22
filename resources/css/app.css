@@ -898,6 +898,32 @@ body.landing-body main {
 }
 
 @media (max-width: 840px) {
+    .header__inner {
+        gap: 0.5rem;
+    }
+
+    .logo,
+    .phone {
+        font-size: clamp(0.62rem, 2.7vw, 0.95rem);
+        white-space: nowrap;
+    }
+
+    .logo {
+        min-width: 0;
+        flex: 1 1 auto;
+        letter-spacing: 0.02em;
+    }
+
+    .logo span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .phone {
+        flex: 0 0 auto;
+    }
+
     .nav {
         display: none;
     }
