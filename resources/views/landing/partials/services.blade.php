@@ -19,7 +19,7 @@
                     >
                     <div class="service-card__fallback" style="display:none;">Изображение услуги</div>
                     <p>{{ $service['description'] }}</p>
-                    <button
+                    <!-- <button
                         class="btn btn--primary service-card__link"
                         type="button"
                         data-service-open
@@ -28,7 +28,7 @@
                         data-service-image="{{ asset($service['image']) }}"
                     >
                         Подробнее
-                    </button>
+                    </button> -->
                 </article>
             @endforeach
         </div>
