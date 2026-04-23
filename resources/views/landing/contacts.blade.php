@@ -4,10 +4,9 @@
     <main>
         <section class="section">
             <div class="container">
-                <h1 class="section-heading section-title--spaced">Контактные данные</h1>
-
                 <div class="contacts-page__top">
                     <div class="contacts-page__info">
+                        <h1 class="section-heading section-title--spaced">Контактные данные</h1>
                         <h3>Адрес:</h3>
                         <p>{{ $page['contact']['address'] }}</p>
 
@@ -25,12 +24,12 @@
                         <h3>Email:</h3>
                         <p>{{ $page['contact']['email'] }}</p>@endif
 
-                        <div class="contacts-page__company">
+                        <!-- <div class="contacts-page__company">
                             <h3>Реквизиты организации:</h3>
                             @foreach($page['contact']['company_details'] as $line)
                                 <p>{{ $line }}</p>
                             @endforeach
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="contacts-page__map">

@@ -793,10 +793,15 @@ body.landing-body main {
 
 .contacts-page__top {
     display: grid;
-    gap: 1.6rem;
+    gap: 2rem;
     grid-template-columns: minmax(0, 1fr) minmax(340px, 1.1fr);
-    align-items: start;
+    align-items: center;
     margin-bottom: 0;
+}
+
+.contacts-page__info {
+    align-self: center;
+    max-width: 34rem;
 }
 
 .contacts-page__info h3,
@@ -818,6 +823,7 @@ body.landing-body main {
     border: 0;
     border-radius: 0.8rem;
     box-shadow: 0 8px 24px rgba(27, 38, 56, 0.08);
+    display: block;
 }
 
 .contacts-page__company p {
@@ -968,6 +974,13 @@ body.landing-body main {
 
     .contacts-page__top {
         grid-template-columns: 1fr;
+        align-items: start;
+        gap: 1.2rem;
+    }
+
+    .contacts-page__info {
+        max-width: none;
+        align-self: start;
     }
 
     .gallery-page__header {
