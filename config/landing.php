@@ -198,5 +198,6 @@ return [
     'request_form' => [
         'title' => 'Обратная связь',
         'description' => 'Оставьте контакты и короткий вопрос. Мы свяжемся с вами для уточнения деталей.',
+        'recipient_email' => env('LANDING_REQUEST_RECIPIENT', 'info@gyroplanes.tech'),
     ],
 ];

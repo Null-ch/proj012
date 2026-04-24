@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Landing;
 
 use App\Http\Controllers\Controller;
+use App\Mail\LandingRequestReceivedMail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 final class RequestFormController extends Controller
 {
@@ -15,9 +17,20 @@ final class RequestFormController extends Controller
             'phone' => ['required', 'string', 'max:40'],
             'question' => ['required', 'string', 'max:2000'],
             'consent' => ['accepted'],
+            'website' => ['nullable', 'max:0'],
         ]);
 
-        // Пока почта не подключена: имитируем успешную отправку для тестов.
+        $recipient = (string) config('landing.request_form.recipient_email', 'info@gyroplanes.tech');
+
+        Mail::to($recipient)->send(new LandingRequestReceivedMail(
+            name: (string) $request->string('name'),
+            phone: (string) $request->string('phone'),
+            question: (string) $request->string('question'),
+            ipAddress: $request->ip(),
+            userAgent: $request->userAgent(),
+            sentAt: now(),
+        ));
+
         $previousUrl = strtok(url()->previous(), '#') ?: route('landing.home');
 
         return redirect()

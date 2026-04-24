@@ -8,6 +8,7 @@
 
             <form class="request__form" method="post" action="{{ route('landing.request.send') }}">
                 @csrf
+                <input type="text" name="website" tabindex="-1" autocomplete="off" style="display:none !important;" aria-hidden="true">
                 <input type="text" name="name" placeholder="Имя" value="{{ old('name') }}" required>
                 <input type="tel" name="phone" placeholder="Телефон" value="{{ old('phone') }}" required>
                 <textarea name="question" placeholder="Ваш вопрос" rows="4" required>{{ old('question') }}</textarea>
