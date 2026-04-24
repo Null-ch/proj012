@@ -19,7 +19,7 @@
                 <tr>
                     <td style="padding:24px;">
                         <p style="margin:0 0 16px; font-size:14px; line-height:1.5;">
-                            Получена новая заявка. Данные отправителя:
+                            Данные по заявке:
                         </p>
                         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse; font-size:14px;">
                             <tr>
