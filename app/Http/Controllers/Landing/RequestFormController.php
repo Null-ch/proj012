@@ -13,11 +13,21 @@ final class RequestFormController extends Controller
     public function __invoke(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:120'],
-            'phone' => ['required', 'string', 'max:40'],
-            'question' => ['required', 'string', 'max:2000'],
+            'name' => ['required', 'string', 'min:1', 'max:120', 'regex:/.*\S.*/u'],
+            'phone' => ['required', 'string', 'max:40', 'regex:/^\+?\d[\d\s\-\(\)]*$/'],
+            'question' => ['required', 'string', 'min:1', 'max:2000', 'regex:/.*\S.*/u'],
             'consent' => ['accepted'],
             'website' => ['nullable', 'max:0'],
+        ], [
+            'name.required' => 'Пожалуйста, укажите имя.',
+            'name.min' => 'Имя должно содержать минимум 1 символ.',
+            'name.regex' => 'Имя не может состоять только из пробелов.',
+            'phone.required' => 'Пожалуйста, укажите телефон.',
+            'phone.regex' => 'Телефон может содержать только цифры, пробелы, скобки, дефис и опциональный "+" в начале.',
+            'question.required' => 'Пожалуйста, укажите вопрос.',
+            'question.min' => 'Вопрос должен содержать минимум 1 символ.',
+            'question.regex' => 'Вопрос не может состоять только из пробелов.',
+            'consent.accepted' => 'Необходимо согласие на обработку персональных данных.',
         ]);
 
         $recipient = (string) config('landing.request_form.recipient_email', 'info@gyroplanes.tech');
