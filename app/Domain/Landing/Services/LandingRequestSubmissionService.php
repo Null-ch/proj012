@@ -12,7 +12,7 @@ final class LandingRequestSubmissionService
 {
     public function submit(LandingRequestData $data): void
     {
-        $recipient = (string) config('landing.request_form.recipient_email', 'zuxobot@yandex.ru');
+        $recipient = (string) config('landing.request_form.recipient_email', 'info@gyroplanes.tech');
 
         Mail::to($recipient)->send(new LandingRequestReceivedMail(
             name: $data->name,
