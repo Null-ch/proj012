@@ -496,6 +496,10 @@ body.landing-body main {
     border-radius: 0.6rem;
     font-size: 0.92rem;
     line-height: 1.4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
 }
 
 .request__alert--success {
@@ -508,6 +512,17 @@ body.landing-body main {
     background: #fee2e2;
     border: 1px solid #fca5a5;
     color: #991b1b;
+}
+
+.request__alert-close {
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font-size: 1.15rem;
+    line-height: 1;
+    padding: 0;
+    cursor: pointer;
+    flex: 0 0 auto;
 }
 
 .toast-stack {

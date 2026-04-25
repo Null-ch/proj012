@@ -191,9 +191,126 @@ const initBackToTop = () => {
     toggleVisibility();
 };
 
+const initRequestForm = () => {
+    const form = document.querySelector('[data-request-form]');
+
+    if (!form) {
+        return;
+    }
+
+    const submitButton = form.querySelector('[data-request-submit]');
+    const successAlert = form.querySelector('[data-request-success]');
+    const errorAlert = form.querySelector('[data-request-error]');
+    const successAlertText = form.querySelector('[data-request-success-text]');
+    const errorAlertText = form.querySelector('[data-request-error-text]');
+    const successCloseButton = form.querySelector('[data-request-success-close]');
+    const errorCloseButton = form.querySelector('[data-request-error-close]');
+    let successHideTimerId;
+    let errorHideTimerId;
+
+    const hideAlerts = () => {
+        successAlert?.setAttribute('hidden', 'hidden');
+        errorAlert?.setAttribute('hidden', 'hidden');
+
+        if (successHideTimerId) {
+            window.clearTimeout(successHideTimerId);
+            successHideTimerId = undefined;
+        }
+
+        if (errorHideTimerId) {
+            window.clearTimeout(errorHideTimerId);
+            errorHideTimerId = undefined;
+        }
+    };
+
+    const showAlert = (target, targetText, message, type = 'success') => {
+        if (!target) {
+            return;
+        }
+
+        if (targetText) {
+            targetText.textContent = message;
+        }
+        target.removeAttribute('hidden');
+
+        if (type === 'success') {
+            if (successHideTimerId) {
+                window.clearTimeout(successHideTimerId);
+            }
+
+            successHideTimerId = window.setTimeout(() => {
+                target.setAttribute('hidden', 'hidden');
+            }, 5000);
+        }
+    };
+
+    successCloseButton?.addEventListener('click', () => {
+        successAlert?.setAttribute('hidden', 'hidden');
+        if (successHideTimerId) {
+            window.clearTimeout(successHideTimerId);
+            successHideTimerId = undefined;
+        }
+    });
+
+    errorCloseButton?.addEventListener('click', () => {
+        errorAlert?.setAttribute('hidden', 'hidden');
+        if (errorHideTimerId) {
+            window.clearTimeout(errorHideTimerId);
+            errorHideTimerId = undefined;
+        }
+    });
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        hideAlerts();
+
+        submitButton?.setAttribute('disabled', 'disabled');
+        const originalButtonText = submitButton?.textContent;
+        if (submitButton) {
+            submitButton.textContent = 'Отправляем...';
+        }
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    Accept: 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
+                },
+            });
+
+            const payload = await response.json().catch(() => ({}));
+
+            if (!response.ok) {
+                const validationErrors = payload?.errors ? Object.values(payload.errors).flat() : [];
+                const errorMessage = validationErrors[0] || payload?.message || 'Не удалось отправить заявку. Попробуйте еще раз.';
+                showAlert(errorAlert, errorAlertText, errorMessage, 'error');
+                return;
+            }
+
+            form.reset();
+            showAlert(
+                successAlert,
+                successAlertText,
+                payload?.message || 'Заявка успешно отправлена. Мы скоро свяжемся с вами.',
+                'success',
+            );
+        } catch {
+            showAlert(errorAlert, errorAlertText, 'Ошибка сети. Проверьте соединение и повторите отправку.', 'error');
+        } finally {
+            if (submitButton) {
+                submitButton.removeAttribute('disabled');
+                submitButton.textContent = originalButtonText || 'Отправить';
+            }
+        }
+    });
+};
+
 initAboutInteractive();
 initServicesSlider();
 initGalleryLightbox();
 initServicesModal();
 initToast();
 initBackToTop();
+initRequestForm();

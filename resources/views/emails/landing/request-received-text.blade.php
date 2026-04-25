@@ -5,7 +5,8 @@
 Имя: {{ $name }}
 Телефон: {{ $phone }}
 Вопрос: {{ $question }}
-Дата и время: {{ $sentAt->format('d.m.Y H:i:s') }}
+Дата и время: {{ $sentAt->copy()->setTimezone('Europe/Moscow')->format('d.m.Y H:i:s') }} (МСК)
+Город: {{ $city ?? 'Не определен' }}
 IP: {{ $ipAddress ?? 'Не определен' }}
 User-Agent: {{ $userAgent ?? 'Не определен' }}
 

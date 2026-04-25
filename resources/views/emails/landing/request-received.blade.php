@@ -36,7 +36,11 @@
                             </tr>
                             <tr>
                                 <td style="padding:10px 0; border-top:1px solid #e5e7eb; color:#6b7280;">Дата и время</td>
-                                <td style="padding:10px 0; border-top:1px solid #e5e7eb;">{{ $sentAt->format('d.m.Y H:i:s') }}</td>
+                                <td style="padding:10px 0; border-top:1px solid #e5e7eb;">{{ $sentAt->copy()->setTimezone('Europe/Moscow')->format('d.m.Y H:i:s') }} (МСК)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px 0; border-top:1px solid #e5e7eb; color:#6b7280;">Город</td>
+                                <td style="padding:10px 0; border-top:1px solid #e5e7eb;">{{ $city ?? 'Не определен' }}</td>
                             </tr>
                             <tr>
                                 <td style="padding:10px 0; border-top:1px solid #e5e7eb; color:#6b7280;">IP</td>

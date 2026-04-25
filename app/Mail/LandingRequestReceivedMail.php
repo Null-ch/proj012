@@ -19,6 +19,7 @@ final class LandingRequestReceivedMail extends Mailable
         public string $phone,
         public string $question,
         public ?string $ipAddress,
+        public ?string $city,
         public ?string $userAgent,
         public Carbon $sentAt,
     ) {
