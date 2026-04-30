@@ -13,13 +13,18 @@ final class LandingContentRepository
 
     public function getServiceBySlug(string $slug): ?array
     {
-        foreach (config('landing.services', []) as $service) {
+        foreach ($this->getServices() as $service) {
             if (($service['slug'] ?? null) === $slug) {
                 return $service;
             }
         }
 
         return null;
+    }
+
+    public function getServices(): array
+    {
+        return config('landing.services', []);
     }
 
     public function getAllWorks(): array

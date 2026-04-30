@@ -9,7 +9,8 @@
                     <img
                         class="service-details__image"
                         src="{{ asset($service['image']) }}"
-                        alt= @if (isset($service['title'])): "{{ $service['title'] }}" @endif
+                        alt="{{ $service['title'] ?? 'Услуга' }}"
+                        loading="lazy"
                         onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
                     >
                     <div class="service-details__image-fallback" style="display:none;">Изображение услуги</div>
