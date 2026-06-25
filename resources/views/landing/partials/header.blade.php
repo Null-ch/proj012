@@ -6,17 +6,21 @@
         </a>
 
         <nav class="nav">
-            @foreach($navigation as $item)
+            @foreach ($navigation as $item)
                 @php
                     $href = $item['href'];
-                    @continue($href === '#privacy-policy')
+                @endphp
 
+                @continue($href === '#privacy-policy')
+
+                @php
                     if ($href === '#contacts') {
                         $href = route('landing.contacts');
                     } elseif (str_starts_with($href, '#') && !request()->routeIs('landing.home')) {
                         $href = route('landing.home') . $href;
                     }
                 @endphp
+
                 <a href="{{ $href }}">{{ $item['label'] }}</a>
             @endforeach
         </nav>
