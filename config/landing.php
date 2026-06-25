@@ -21,7 +21,6 @@ return [
         ['label' => 'Услуги', 'href' => '#services'],
         ['label' => 'Наши работы', 'href' => '#portfolio'],
         ['label' => 'Контакты', 'href' => '#contacts'],
-        ['label' => 'Политика конфиденциальности', 'href' => '#privacy-policy'],
     ],
     'hero' => [
         'badge' => 'Современные технологии металлообработки',
