@@ -11,7 +11,7 @@ final class PrivacyPolicyDownloadController extends Controller
     {
         return response()->download(
             resource_path('content/privacy-policy.docx'),
-            'politika-obrabotki-personalnyh-dannyh.txt',
+            'privacy-policy.docx',
             ['Content-Type' => 'text/plain; charset=UTF-8'],
         );
     }
