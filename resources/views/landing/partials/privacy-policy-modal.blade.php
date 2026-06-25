@@ -8,9 +8,7 @@
             @include('landing.partials.privacy-policy-content')
         </div>
         <div class="privacy-policy-modal__footer">
-            <a class="btn btn--primary privacy-policy-modal__download" href="{{ route('landing.privacy-policy.download') }}" download>
-                Скачать документ
-            </a>
+            @include('landing.partials.privacy-policy-download')
         </div>
     </div>
 </div>

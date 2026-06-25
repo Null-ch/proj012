@@ -2,14 +2,25 @@
     @include('landing.partials.header', ['navigation' => $page['navigation'], 'contact' => $page['contact']])
 
     <main>
-        <section class="section privacy-policy-page">
+        <section class="section section--alt privacy-policy-page">
             <div class="container">
-                <div class="privacy-policy-page__toolbar">
-                    <a class="btn btn--primary" href="{{ route('landing.privacy-policy.download') }}" download>
-                        Скачать документ
-                    </a>
-                </div>
-                @include('landing.partials.privacy-policy-content')
+                <article class="privacy-policy__paper">
+                    <header class="privacy-policy__doc-header">
+                        <p class="privacy-policy__doc-label">Официальный документ</p>
+                        <h1 class="privacy-policy__doc-title">Политика обработки персональных данных</h1>
+                        <p class="privacy-policy__doc-meta">
+                            АО «ГИРОПЛАНЫ - ПЕРЕДОВЫЕ АВИАЦИОННЫЕ ТЕХНОЛОГИИ» · в соответствии с Федеральным законом № 152-ФЗ
+                        </p>
+                    </header>
+
+                    <div class="privacy-policy__body">
+                        @include('landing.partials.privacy-policy-content')
+                    </div>
+
+                    <footer class="privacy-policy__actions">
+                        @include('landing.partials.privacy-policy-download')
+                    </footer>
+                </article>
             </div>
         </section>
     </main>
