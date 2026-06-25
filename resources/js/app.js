@@ -191,6 +191,49 @@ const initBackToTop = () => {
     toggleVisibility();
 };
 
+const initPrivacyPolicyModal = () => {
+    const modal = document.querySelector('[data-privacy-policy-modal]');
+    const openButtons = document.querySelectorAll('[data-privacy-policy-open]');
+    const closeButton = document.querySelector('[data-privacy-policy-close]');
+
+    if (!modal || !openButtons.length) {
+        return;
+    }
+
+    const openModal = () => {
+        modal.hidden = false;
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeModal = () => {
+        modal.hidden = true;
+        modal.classList.remove('is-open');
+        document.body.style.overflow = '';
+    };
+
+    openButtons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            openModal();
+        });
+    });
+
+    closeButton?.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !modal.hidden) {
+            closeModal();
+        }
+    });
+};
+
 const initRequestForm = () => {
     const form = document.querySelector('[data-request-form]');
 
@@ -311,6 +354,7 @@ initAboutInteractive();
 initServicesSlider();
 initGalleryLightbox();
 initServicesModal();
+initPrivacyPolicyModal();
 initToast();
 initBackToTop();
 initRequestForm();

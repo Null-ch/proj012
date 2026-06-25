@@ -43,6 +43,7 @@
     @endif
 
     {{ $slot }}
+    @include('landing.partials.privacy-policy-modal')
     <button type="button" class="back-to-top" aria-label="Наверх" data-back-to-top>Наверх</button>
 </body>
 </html>

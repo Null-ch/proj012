@@ -14,7 +14,10 @@
                 <textarea name="question" placeholder="Ваш вопрос" rows="4" required>{{ old('question') }}</textarea>
                 <label class="request__consent">
                     <input type="checkbox" name="consent" @checked(old('consent')) required>
-                    Согласен на обработку персональных данных
+                    <span>
+                        Согласен на
+                        <a href="{{ route('landing.privacy-policy') }}" data-privacy-policy-open>обработку персональных данных</a>
+                    </span>
                 </label>
                 <div class="request__alert request__alert--success" data-request-success hidden>
                     <span data-request-success-text></span>
