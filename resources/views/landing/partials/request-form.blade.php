@@ -13,7 +13,7 @@
                 <input type="tel" name="phone" placeholder="Телефон" value="{{ old('phone') }}" required>
                 <textarea name="question" placeholder="Ваш вопрос" rows="4" required>{{ old('question') }}</textarea>
                 <label class="request__consent">
-                    <input type="checkbox" name="consent" @checked(old('consent')) required>
+                    <input type="checkbox" name="consent" @checked(old('consent')) required style="margin-top: 5px;">
                     <span class="request__consent-text">
                         <a
                             href="{{ route('landing.privacy-policy') }}"
