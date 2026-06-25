@@ -15,14 +15,13 @@
                 <label class="request__consent">
                     <input type="checkbox" name="consent" @checked(old('consent')) required>
                     <span class="request__consent-text">
-                        Я ознакомлен и согласен с
                         <a
                             href="{{ route('landing.privacy-policy') }}"
                             class="request__consent-link"
                             data-privacy-policy-open
                             title="Ознакомиться с политикой обработки персональных данных"
                         >
-                            Политикой обработки персональных данных
+                        Я ознакомлен и согласен с политикой обработки персональных данных
                         </a>
                     </span>
                 </label>
