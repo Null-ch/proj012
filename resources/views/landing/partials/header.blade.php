@@ -9,6 +9,7 @@
             @foreach($navigation as $item)
                 @php
                     $href = $item['href'];
+                    @continue($href === '#privacy-policy')
 
                     if ($href === '#contacts') {
                         $href = route('landing.contacts');
