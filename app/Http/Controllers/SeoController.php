@@ -13,7 +13,6 @@ final class SeoController extends Controller
             route('landing.home'),
             route('landing.contacts'),
             route('landing.gallery'),
-            route('landing.privacy-policy'),
         ];
 
         foreach ($content->getServices() as $service) {

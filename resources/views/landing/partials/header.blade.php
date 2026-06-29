@@ -9,11 +9,7 @@
             @foreach ($navigation as $item)
                 @php
                     $href = $item['href'];
-                @endphp
 
-                @continue($href === '#privacy-policy')
-
-                @php
                     if ($href === '#contacts') {
                         $href = route('landing.contacts');
                     } elseif (str_starts_with($href, '#') && !request()->routeIs('landing.home')) {

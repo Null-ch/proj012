@@ -15,8 +15,6 @@
 
                     if ($href === '#contacts') {
                         $href = route('landing.contacts');
-                    } elseif ($href === '#privacy-policy') {
-                        $href = route('landing.privacy-policy');
                     } elseif (str_starts_with($href, '#') && request()->routeIs('landing.contacts')) {
                         $href = route('landing.home') . $href;
                     }

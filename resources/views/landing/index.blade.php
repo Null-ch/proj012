@@ -8,7 +8,6 @@
         @include('landing.partials.services', ['services' => $page['services']])
         @include('landing.partials.portfolio', ['portfolio' => $page['portfolio'], 'portfolioLink' => $page['portfolio_link'] ?? null])
         @include('landing.partials.clients', ['clients' => $page['clients'] ?? null])
-        @include('landing.partials.request-form', ['form' => $page['request_form']])
     </main>
 
     @include('landing.partials.footer', ['contact' => $page['contact'], 'navigation' => $page['navigation']])
